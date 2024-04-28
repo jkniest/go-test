@@ -1,10 +1,12 @@
 package main
 
 import (
-	"fmt"
-	"tdd/helloworld"
+	"os"
+	"tdd/mocking"
+	"time"
 )
 
 func main() {
-	fmt.Println(helloworld.Hello("Jordan", ""))
+	sleeper := mocking.MakeSleeper(2*time.Second, time.Sleep)
+	mocking.Countdown(os.Stdout, &sleeper)
 }
